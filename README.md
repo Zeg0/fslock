@@ -1,7 +1,7 @@
 
 **This is a fork of https://github.com/juju/fslock/fork to update go-modules usage**
 
-**Info** when you want to write to a file "text.txt" it is a good idea to create the lock as "text.txt.lock"
+**Info** when you want to write to a file "text.txt" it is a good idea to create the lock as "text.txt.lock" so you can still open the actual file normally. Otherwise you need to use the low level syscall.handle on the file within the lock. (`lock.GetFileHandle()`)
 
 example usage:
 ```
