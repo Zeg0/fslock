@@ -1,8 +1,9 @@
 
 **This is a fork of https://github.com/juju/fslock/fork to update go-modules usage**
 
-example usage:
+**Info** when you want to write to a file "text.txt" it is a good idea to create the lock as "text.txt.lock"
 
+example usage:
 ```
 package main
 import (
@@ -27,6 +28,8 @@ func main() {
 }
 ```
 and use `go mod tidy`
+
+
 
 -------------
 
