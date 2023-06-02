@@ -1,4 +1,6 @@
 
+**This is a fork of https://github.com/juju/fslock/fork to update go-modules usage**
+
 # fslock [![GoDoc](https://godoc.org/github.com/juju/fslock?status.svg)](https://godoc.org/github.com/juju/fslock)
 fslock provides a cross-process mutex based on file locks that works on windows and *nix platforms.
 
