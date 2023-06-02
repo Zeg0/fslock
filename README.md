@@ -1,6 +1,35 @@
 
 **This is a fork of https://github.com/juju/fslock/fork to update go-modules usage**
 
+example usage:
+
+```
+package main
+import (
+    "time"
+    "fmt"
+    fslock "github.com/Zeg0/fslock" 
+)
+
+func main() {
+    lock := fslock.New("../lock.txt")
+    lockErr := lock.TryLock()
+    if lockErr != nil {
+		// unable to acquire lock
+         fmt.Println("falied to acquire lock > " + lockErr.Error())
+	} else {
+		// ok
+		defer lock.Unlock()
+        // write to file or something
+        fmt.Println("got the lock")
+        time.Sleep(1 * time.Minute)
+	}
+}
+```
+and use `go mod tidy`
+
+-------------
+
 # fslock [![GoDoc](https://godoc.org/github.com/juju/fslock?status.svg)](https://godoc.org/github.com/juju/fslock)
 fslock provides a cross-process mutex based on file locks that works on windows and *nix platforms.
 
