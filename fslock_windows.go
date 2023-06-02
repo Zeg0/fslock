@@ -32,6 +32,10 @@ type Lock struct {
 	handle   syscall.Handle
 }
 
+func (l *Lock) GetFilename() string {
+	return l.filename
+}
+
 // New returns a new lock around the given file.
 func New(filename string) *Lock {
 	return &Lock{filename: filename}
