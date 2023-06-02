@@ -15,15 +15,15 @@ func main() {
     lock := fslock.New("../lock.txt")
     lockErr := lock.TryLock()
     if lockErr != nil {
-		// unable to acquire lock
-         fmt.Println("falied to acquire lock > " + lockErr.Error())
-	} else {
-		// ok
-		defer lock.Unlock()
+        // unable to acquire lock
+        fmt.Println("falied to acquire lock > " + lockErr.Error())
+    } else {
+        // ok
+        defer lock.Unlock()
         // write to file or something
         fmt.Println("got the lock")
         time.Sleep(1 * time.Minute)
-	}
+    }
 }
 ```
 and use `go mod tidy`
